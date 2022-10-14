@@ -1,0 +1,309 @@
+
+<doctype=!html>
+<HTML>
+
+    <body>
+        <div style="text-align:left;
+                   font-family:Roboto;
+                   padding:5pt;
+                   font-size:9">
+        Versão = 1.0.0
+        </div>
+		
+		<div style="text-align:left;
+                   font-family:Roboto;
+                   padding:1%">
+				   
+			<h1>
+				Bem vindo ao gerador de informes Info Builder! 
+			</h1> 
+
+			<h2>
+				Índice
+			</h2>
+		
+        </div>
+		
+        <div style="text-align:justify;
+					font-family:Roboto;
+					padding:1%">
+					
+            <ol>
+                <li>
+				<a href="display_text.html#intro"> Introdução </a>
+				</li>
+                <li>
+				<a href="display_text.html#first-steps"> Primeiros Passos </a>
+				</li>
+                <li>
+				<a href="display_text.html#cards"> Adicionando um Card </a>
+				</li>
+				<li>
+				<a href="display_text.html#tags"> Tags e HTML </a>
+				</li>
+				<li>
+				<a href="display_text.html#formatting"> Formatação e Exibição </a>
+				</li>
+            </ol>
+        </div>
+        
+        <div style="display:inline-block;
+					text-align:justify;
+					font-family:Roboto;
+					padding:1%;
+					width:100%;
+					max-width:960px">
+				   
+            <h2 id="intro"> 
+				<a>Introdução</a>
+			</h2>
+			
+            <p>
+            Este constutor foi criado para facilitar a criação de informes a partir de dados padronizados. Sua operação permite que modelos de ralaório definidos préviamente sejam criados em poucos minutos a partir de bases de dados (em Excel) estruturados de modo compatível. Seguem algumas informações iniciais para que o usuário possa começar a utilizá-lo.
+            </p>
+            
+			<p>
+			<strong>ESTE SOFTWARE ESTÁ EM FASE BETA</strong>. Sua estabilidade ainda é baixa e mais funcionalidades serão acrescentadas so longo do tempo.
+			</p>
+			
+            <p>
+            Esta tela - "Preview" - apresentará uma versão amostral do informe, uma vez que sejam configuradas as informações de formatação e de aquisição dos dados. Caso presencie algum bug nela, clique em "<em>Recarregar</em>" para recarregar a visualização.
+            </p>
+            
+            <p><em>FEEDBACKS SÂO BEM VINDOS!!</em> envie-os para o bloco do Construtor de Informes na aba de Tarefas da equipe do Teams. Pretendo dar suporte continuado à ferramenta priorizando as sugestões mais urgentes.
+            </p>
+
+            
+		<h2>
+			<a name="first-steps">Primeiros Passos</a>
+		</h2>
+		
+            <p>
+            Informes são construídos a partir de <strong><em>cards</em></strong>: blocos de informação contendo uma campo de 'Cabeçalho', uma imagem inicial de 'Banner',um 'Título', um 'Corpo', um 'Rodapé', que pode ser uma imagem ou um texto, e uma borda que engloba o conteúdo. Toda imagem também possui um campo de legenda atribuído e opções para inserção de <em>hyperlinks</em>.
+            </p>
+            
+		<h3>
+			<a name="cards">Adcionando um Card
+		</h3> 
+		
+            <p>
+			Cards podem ser criados individualmente ou automaticamente a partir de uma base de dados. Em ambos os casos, os campos a serem preenchidos são semelhantes, porém a utilização do método de importação permite que bases já existentes sejam aproveitadas sem a nescessidade de transcrição manual.
+			</p>
+			
+			<h4>Criação individual ou manual</h4>
+				Navegando nas opções <em>Adicionar Cards&gt;Adicionar Manualmente</em>, o programa exibirá a tela de adição de cards.
+				
+				<div style="text-align:center;display:block">
+					<img src="https://i.imgur.com/m5YgFss.png" style="text-align:center;width:90%;margin:1% 2% 1% 2%">
+				</div>
+				
+				<p> 
+				Nesta tela, pode-se configurar os conteúdos individuais de cada campo dispnível. Use as etiqutas no topo para navegar entre os grupos de configurações.
+				</p>
+				
+				<p>
+				Nas seções <em>Banner</em> e <em>Rodapé</em>, imagens podem ser importadas da internet ou carregadas do armazenamento local.
+				
+				<ul>
+					<li> Imagens Web: selecione a opção <strong>URL</strong> e cole o link no campo de texto; Imagens adicionaadas deste modo não ocuparão memória no e-mail mas são dependentes do link estar em funcionamento no momento da leitura da mensagem.
+					<li> Imagens Locais: selecione "Caminho" e clique na opção "Buscar Imagem" para selecionar um arguivo da memória. Formatos suportados são .png, .jpg/.jpeg e .gif. Imagens adicionadas deste modo são anexadas diretamente ao email após convertidas em formato base64 (via <em>CID</em>) e, portanto, ocupam espaço de memória no e-mail. Não são todavia dependentes de disponibilidade da original como o ocorre nas imagens Web. Imagens muito gradnes e complexas demorarão para serem carregadas pelo usuário. Alguns provedores de e-mail podem também destacá-las como anexos ao fim da mensagem.				
+				</ul>
+				
+				<p>
+				Os campos <em>Legenda</em> e <em>Hyperlink</em> adicionam, respectivamente, um texto de legenda abaixo da imagem e um link qualquer a ser acessado quando se clica na imagem adicionada.
+				</p>
+				
+				<p>
+				Para a seção de <em>Rodapé</em>, pode-se também, no lugar de uma imagem, adicionar-se um texto.
+				</p>
+				
+				<p>
+				Uma vez configuradas todas as opções, clique no botão <strong>Adicionar</strong> para gerar um card com estas configurações e adicioná-lo ao fim do documento, ou <strong>Inserir</strong> para criá-lo em uma posição específica do documento (por exemplo, o segundo card em uma lista de três). Cards posicionados no local onde um novo será inserido são reposicionados uma posição a frente (por exemplo: em uma lista de três cards, ao posicionar um novo na primeira posição, o primeiro carda tornar-se-á o segundo, o terceiro se tornará o quarto e assim por diante).
+				</p>
+				
+				<p>
+				Configurações de formatação podem também ser realizadas a partir da opção <strong>Formatação Avançada</strong>. Detalhes acerca de como realizar esta sorte de customização são encontrados na seção <a href="display_text.html#formatting"> Formatação e Exibição</a>.
+				</p>
+				
+
+			<h4>Criação por Importação de Base dados</h4>
+				<p>
+				Navegando nas opções <em>Adicionar Cards&gt;Importar de Planilha</em>, o programa exibirá a tela de importação de cards.
+				</p>
+				
+				<div style="text-align:center;display:block">
+					<img src="https://i.imgur.com/xPKMo9u.png" style="text-align:center;width:90%;margin:1% 2% 1% 2%">
+				</div>
+				
+				<p>
+				Nesta tela, pode-se configurar os parâmetros de importação dos dados. Utilize as abas da parte superior para navegar por entre os grupos de configurações disponíveis.
+				</p>
+				
+				<h5> Estruturando uma planilha de dados </h5>
+					<p>
+					Criar uma planilha para utilização com este programa é uma tarefa simples. Para cada conjunto de dados que comporá um card, deve-se inseri-las em uma mesma linha (isto é, cada linha representa um card), de modo que as colunas contemplem cada um dos seguintes campos:
+					</p>
+					
+					<ul>
+						<li><strong>Dados Obrigatórios</strong></li>
+						<ul>
+							<li>Corpo</li>
+						</ul>
+						<li><strong>Dados Opcionais</strong></li>
+						<ul>
+							<li>Cabeçalho</li>
+							<li>Título</li>
+							<li>Conteúdo do Banner</li>
+							<li>Link do Banner</li>
+							<li>Legenda do Banner</li>
+							<li>Conteúdo do Rodapé</li>
+							<li>Link do Rodapé</li>
+							<li>Legenda do Rodapé</li>
+							<li>Datas</li>
+							<li>Indicador de Inclusão</li>
+						</ul>
+					</ul>
+					
+					<p>
+					Colunas de dados opcionais só são nescessárias quando sua funcionalidade for desejada. Além disso, colunas <strong> não precisame estar em ordem </strong>,porém em ordem conhecida, e <strong>podem possuir qualquer nome</strong> sem restrições. Qualquer número de linhas de cabeçalho podem ser utilizadas, mas uma vez que as linhas de dados comecem, é desaconselhável que se utlize as linhas posteriores para outros fins que não o armazenamento de mais dados. Colunas que não as reservadas para os dados podem ser utilizadas livremente. A página da pasta de trabalho do Excel que contém os dados pode possuir qualquer nome e estar em qualquer poisção, mas essas informações devém ser conhecidas.
+					</p>
+				
+				
+				<h5>Planilha</h5>
+				
+					<p>
+					Na seção <strong>Caminho da Planilha</strong>, clique no botão <strong>Buscar</strong> para buscar a planilha em Excel contendo os dados estruturados; Ou copie diretamente o caminho do arquivo (incluindo seu nome e extensão .xlsx). Em <strong>Nome ou Número da Aba</strong> insira o nome ou a posição (iniciada em 0) da aba da pasta de trabalho contendo os dados estruturados. Por fim, em <strong>Linhas de Cabeçalho</strong> quantas linhas estão sendo ocupadas pelo cabeçalho (e pelas linhas anteriores a ele, se aplicável) para que o progra as desconsidere durante a importação. 
+					</p>
+				
+				<h5>Colunas</h5>
+				
+					<p>
+					Para cada coluna implementada na planilha de dados, entre a letra correspondente no campo indicado. Caso deseje que todos os cards possuam o mesmo conteúdo em um dado campo, entre este dado nas opções "padrão". Por padrão, se ambos os campos forem preenchidos, o valor padrão tem prevalência sobre os dados importados e os subtistiuirá em todos os cards. Deixar ambos os campos em branco remove o espaço dedicado a este componente no card.  
+					</p>
+			
+				<h5>Figuras</h5>
+					
+					<p>
+					Nesta aba deve-se informar ao programa como deve-se tratar as imagens adicionadas aos campos <em>Banner</em> e <em>Rodapé</em>.
+					</p>
+					
+					<ul>
+						<li><strong>Seleção de tipo</strong>: Define o método adotado para importar imagens para o e-mail. Escolher entre URL (link de imagem web), Caminho (Caminho de imagem local) ou Texto (somente para rodapé, tratar dados importados como texto, não imagem;</li>
+						<li><strong>Coluna do link</strong>: Letra da coluna na planilha que contém os links para os endereços web para os quais o usuário será encaminhado ao clicar sobre a mensagem. Opção padrão: será aplicada em todos os cards e substuirá os dados importados;</li>
+						<li><strong>Coluna da Legenda</strong>: Letra da coluna na planilha que contém o texto de elgenda a ser inserido embaixo de cada imagem. Opção padrão: será aplicada em todos os cards e substuirá os dados importados; Opção "Texto se vazio", substitui todo espaço em branco nos dados importados pelo texto inserido.</li>
+					</ul>
+					
+				<h5>Filtro</h5>
+				
+					<p>
+					Utilize os parâmetros desta seção para filtrar quais dados serão utilizados para criação dos cards
+					</p>
+					
+					<p>
+					As primeiras três divisões (<em>"Coluna das Datas", "Frequência"</em> e <em>"Data de Referência"</em>) permitem a filtragem temporal dos conjuntos de dados, enquanto "<em>Coluna da Tag</em>" e "<em>Incluir se o Valor For</em>" permitem definir um marcador que dita a seleção ou não de uma linha de dados. Ambos os filtros podem ser utilizados simultâneamente.
+					</p>
+					
+					<ul>
+						<li><strong>Filtro Temporal</strong></li>
+						<ul>
+							<li><strong>Coluna da datas:</strong> coluna da planilha contendo as datas relacionadas aos dados do card, em formato 'dd/mm/yyyy';</li> 
+							<li><strong>Frequência:</strong> define a frequência desejada no recorte das datas válidas. São três possibilidades:</li>
+							<ul>
+								<li><strong>Semanal:</strong> escolha um dia da semana. As datas válidas serão obtidas buscando as primeiras ocorrências deste dia da semana antes e após a data de refência definida na sequência</li>
+								<li><strong>Mensal:</strong> escolha um dia do mês. As datas válidas serão obtidas buscando as primeiras ocorrências deste dia do mês antes e após a data de refência definida na sequência. O programa NÃO corrige a quantidade de dias entre meses com 30 e 31 dias, nem para o mês de fevereiro. Certifique-se portanto de que marcar a opção 'dia 31' resultara em dados equivalentes a um período de 60 dias ou mais.
+								<li><strong>Comparação:</strong> escolha um modo de comparação com a referência - Anterior (todos os dados anteriores à referência), Após (todos os dados posteriores à referência) ou Igual (Todos os dados com data igual à referência)</li>
+							</ul>
+							<li><strong>Data de Referência:</strong> data utilizada como base para definição do período válido. Por padrão, é inicializada como o dia atual.</li>
+ 						</ul>
+						<li><strong>Filtro por Etiquetagem</strong></li>
+						<ul>
+							<li><strong>Coluna da Tag:</strong> Coluna contendo a etiqueta que indica a inclusão ou não de uma linha de dados</li>
+							<li><strong>Incluir se o Valor For:</strong> Indica o conteúdo que, quando identificado na célula da coluna de tags, indica que a linha em que se encontra deve ser incluída. Ex: se 'Verdadeiro' for inserido neste campo, e 'I' na coluna, quaiquer linhas cuja célula da coluna 'I' contiverem apenas valor 'Verdadeiro' serão consideradas para inclusão, e as demais descartadas</li>
+						</ul>
+					</ul>
+					
+			<h4>Salvando/Carregando perfis de importação</h4>
+				
+				<p>
+				Perfis de importação facilitam a importção periódica de um conjunto de dados específicos.
+				</p>
+				
+				<p>
+				Para salvar um perfil, selecione o botão <em>Salvar Configurações</em>. Um menu contendo os perfis disponíveis será exibido. Para qualquer perfil desejado, selecione <em>Salvar</em> para sobrescrever o perfil nele salvo com os dados já preenchidos, ou <em>Salvar Como</em> para, após sobrescrever os dados, alterar o nome do perfil.
+				</p>
+				
+				<p>
+				Para carregar um perfil salvo, selecione o botão <em>Importar Configurações</em> e, em seguida, selecione o perfir desejado clicando em <em>Carregar</em>.
+				</p>
+				
+		<h3>
+			<a name="tags">Tags e HTML.
+		</h3> 
+		
+			<p>
+			O sintetizador do texto do siftware utiliza linguagem HTML para gerar os e-mails e visualizações a partir dos campos de entrada. Portanto, todas as tags HTML compatíveis com o provedor de e-mail adotado irão funcionar. De forma prático, isso implica, em geral, que tags HTML 4 devem funcionar normalmente. Consulte detalhes de compatibilidade através dos canais de seu provedor de e-mails de escolha.
+			</p>
+			<p>
+			Embora HTML seja aceito, CSS possui menor compatibilidade no âmbito de e-mails. Como uma regra prática, utilize apenas CSS <em>in-line</em> e utilize tabelas para posicionamento, em detrimento de configurações de margem e preenchimento.
+			</p>
+			<p>
+			Adicionalmente, para facilitar a inclusão de estruturas comuns que podem ser complexas devido a natureza de e-mails HTML, foram implementadas etiquetas próprias que são processadas pelo software.
+			escrever "" . Semelhante modo, parágrafos iniciados com uma tabulação, escrevendo ";", são interpretados como uma lista de items
+			</p>
+			<ul>
+				<li>Tag: <strong>&lt;T&gt;</strong> - Inserida no inicio um parágrafo fará com que todo o parágrafo seja formatado como um "Subtítulo".Considera-se como parágrafo todo texto até a próxima quebra de linha manual (tecla enter);
+				<li>Tag: <strong>&lt;tab&gt;</strong> - Inserida no inicio um parágrafo fará com que todo o parágrafo seja formatado como um item de uma lista. Considera-se como parágrafo todo texto até a próxima quebra de linha manual (tecla enter); A presença de tags <strong>&lt;tab&gt;</strong> em parágrafos consecutivos é formatada como vários items em uma única lista. Não é possível, no momento, criar subtópicos em uma listagem utilizando este método (para isso, utilize HTML).
+				<li>Tag: <strong>&lt;I =<em>url; width</em>&gt;</strong> - Inserida em qualquer local do texto, incluirá uma imagem da web localizada na variável <em>url</em>. O parâmetro opcional <em>width</em> é um número que representa o percentual da lagura da página ocupada pela imagem. Na ausência de <em>width</em>, por padrão considera-se 100% da largura. Os parâmetros são separados por um ponto e virgula ';'.
+			</ul>
+
+			
+		<h3>
+			<a name="formatting">Formatação e Exibição</a>
+		</h3> 
+					
+			<p>
+			Opções de formatação podem ser encontradas clicando nos botões <em>Formatação Avançada</em>, nas páginas de criação de cards. Alterações nas configurações de formatação serão aplicadas no(s) card(s) gerados na sequência. Estão disponíveis opções de formatação para bordas, cabeçalhos, banners, títulos, subtítulos, corpo dos textos e rodapés, todas acessadas pelo menu de abas na parte superior da janela.
+			</p>
+			
+			<p>
+			O menu lateral permite salvar e importar perfis de formatação, bem como aplicar ou tornar padrão as configurações inseridas.
+			</p>
+			
+			<h4>Configurações da Borda</h4>
+			
+				<p>
+				A borda pode ser configurada em:
+				</p>
+				
+				<ul>
+					<li><strong>Utilizar Borda</strong> - <em>Seleção</em>. Define se há borda ou não no card;
+					<li><strong>Cor</strong> - <em>HEX</em>. Altera a cor da borda para o formato HEX especificado. O seletor de cores pode ser acessado clicando no botão de conta-gotas ao lado do campo de entrada.
+					<li><strong>Espessura</strong> - <em>Número</em>. Espessura da bora em pixels (px);
+					<li><strong>Raio</strong> - <em>Número</em>. Raio em pixels da curvatura dos cantos das bordas. Se 0, a borda apresentará cantos quadrados;
+					<li><strong>Margem Horizontal</strong> - <em>Número</em>. Espaçamento percentual da janela de vizualização entre a borda do card e as extremidades da esquerda e da direita da janela;
+					<li><strong>Margem Vertical</strong> - <em>Número</em>. Espaçamento percentual da janela de vizualização entre a borda do card e as extremidades superior e inferior da janela;
+				</ul>
+			
+			
+			<h4>Configurações da Cabeçalho</h4>
+			
+				<p>
+				O cabeçalho pode ser configurada em:
+				</p>
+				
+				<ul>
+					<li><strong>Fonte</strong> - <em>Texto</em>. Nome da fonte desejada;
+					<li><strong>Tamanho da Fonte</strong> - <em>Número</em>. Tamanho da fonte em pontos (pt);
+					<li><strong>Fomatação</strong> - <em>Seleção</em>. Opção de negrito ou normal;
+					<li><strong>Cor</strong> - <em>HEX</em>. Altera a cor do texto do cabeçalho para o formato HEX especificado. O seletor de cores pode ser acessado clicando no botão de conta-gotas ao lado do campo de entrada;
+					<li><strong>Margem Horizontal</strong> - <em>Número</em>. Espaçamento percentual da janela de vizualização entre a borda do card e as extremidades da esquerda e da direita da janela;
+					<li><strong>Margem Vertical</strong> - <em>Número</em>. Espaçamento percentual da janela de vizualização entre a borda do card e as extremidades superior e inferior da janela;
+				</ul>
+			
+			
+			
+			
+        </div>
+        
+    </body>
+</HTML>
