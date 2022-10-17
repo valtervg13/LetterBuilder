@@ -56,7 +56,7 @@ class single_entry(tk.Toplevel):
                  parent,
                  parent_func,
                  master,
-                 size = '150x125',
+                 size = '300x150',
                  f_kwargs = {},
                  **kwargs):
 

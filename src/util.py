@@ -87,16 +87,33 @@ def col2num(col):
 """
 
 def exportEML():
-    with open('display_text.eml','r',encoding='utf8') as root_file:
-        root_data = root_file.read()
-        root_file.close()
+    """
+    Salva o codigo produzido em formatos variados
+
+    Returns
+    -------
+    None.
+
+    """
     
     new_file = tk.filedialog.asksaveasfile(defaultextension ='*.*',
-                                           filetypes=[('E-mail Outlook','*.eml'),
+                                           filetypes=[('HTML para Email','*.html'),
+                                                      ('E-mail Outlook','*.eml'),
                                                       ('Todos os Arquivos','*.*')
                                                       ]
                                            )
     
+    ext = new_file.name.split('.')[-1]
+    
+    if ext == "eml":
+        with open('display_text.eml','r',encoding='utf8') as root_file:
+            root_data = root_file.read()
+            root_file.close()
+    else:
+        with open('email_contents.html','r',encoding='utf8') as root_file:
+            root_data = root_file.read()
+            root_file.close()
+        
     with open(new_file.name,'w',encoding='utf8') as file:
         file.write(root_data)
         file.close()

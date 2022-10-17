@@ -389,6 +389,20 @@ f"""
                 """
                 +post_scriptum)
         
+        MIME_message_contents = (f"""
+<table align="center" width="100%" style="width:100%;table-layout:fixed">
+    <tr>
+        <td></td>
+        <td width="{self.max_width}">
+                
+"""
+        +'\n<br>'.join([card.mime_text for card in self.cards])
+        +"""
+        </td>
+        <td></td>
+    </tr>
+</table>""")
+        
     
         #===============================================
         #HTML PURO
@@ -410,7 +424,7 @@ f"""
     
     
         
-        return MIME_message, HTML_message
+        return MIME_message, MIME_message_contents, HTML_message
                     
 
 
@@ -707,8 +721,8 @@ class card():
 
 <table align="center" width="100%" style=";width:100%;table-layout:fixed">
     <tr style="width:100%;height:{hd_tcellh}%">
-        <td></td>
-        <td></td>
+        <td style="width:{hd_lcellw}%"></td>
+        <td style="width:{hd_cellw+hd_rcellw}%"></td>
     </tr>
     <tr style="width:100%">
         <td style="width:{hd_lcellw}%"></td>
@@ -766,7 +780,11 @@ class card():
         mime_banner = (f"""
 
         <table align="center" width="100%" style="width:100%;table-layout:fixed">
-            <tr style="width:100%;height:{bn_tcellh}%"></tr>
+            <tr style="width:100%;height:{bn_tcellh}%">
+                <td style="width:{bn_lcellw}%"></td>
+                <td style="width:{bn_cellw}%"></td>
+                <td style="width:{bn_lcellw}%"></td>
+            </tr>
             <tr>
                 <td style="width:{bn_lcellw}%"></td>
                 <td style="width:{bn_cellw}%">
@@ -777,7 +795,7 @@ class card():
                  </td>
                  <td style="width:{bn_rcellw}%"></td>
              </tr>
-             <tr style="width:100%;height:{bn_bcellh}%"></td>
+             <tr style="width:100%;height:{bn_bcellh}%"></tr>
          </table>
                         """ 
                        if banner!= ''
@@ -909,7 +927,11 @@ class card():
                        if footer==''
                        else f"""
     <table align="center" width="100%" style="width:100%;table-layout:fixed">
-        <tr style="width:100%;height:{ft_tcellh}"></tr>
+        <tr style="width:100%;height:{ft_tcellh}">
+            <td style="width:{ft_lcellw}%"></td>
+            <td style="width:{ft_cellw}%"></td>
+            <td style="width:{ft_lcellw}%"></td>
+        </tr>
         <tr style="width:{ft_cellw}%">
             <td style="width:{ft_lcellw}%"></td>
             <td style="width:{ft_cellw}%">
@@ -951,7 +973,7 @@ class card():
                                             text-align:center;
                                             font-family={title_font};
                                             width:100%;
-                                            max-width:50%;
+                                            max-width:75%;
                                             margin-left:auto;
                                             margin-right:auto;" >
         </a>

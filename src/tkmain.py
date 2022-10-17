@@ -133,20 +133,54 @@ class App(themes.ThemedTk):
                     newsletter,
                     format_dict=format_dict):
         
-        mime_letter,html_letter = newsletter.build_letter()
+        mime_letter,mime_letter_contents,html_letter = newsletter.build_letter()
         with open('cards_text.html','w',encoding='utf8') as cards_text:
             cards_text.write(html_letter)
         with open('display_text.html','w',encoding='utf8') as display_text:
             display_text.write(html_letter)   
         with open('display_text.eml','w',encoding='utf8') as display_text:
-            display_text.write(mime_letter)    
+            display_text.write(mime_letter)
+        with open('email_contents.html','w',encoding='utf8') as mail_contents:
+            mail_contents.write(mime_letter_contents)
     
     def createCard(self,
                    newsletter,
                    info,
                    format_dict=format_dict,
                    pos='end'):
+        """
         
+        Cria um card e adiciona à lista de cards em posicao especificada.
+
+        Parameters
+        ----------
+        newsletter : newsletter
+            Objeto Newsletter que aceitará os cards.
+        info : dict
+            Dicionário contendos os dados do card nas chaves:
+                
+                 - "banner"
+                 - "banner_mode"
+                 - "banner_link"
+                 - "banner_caption"
+                 - "footer"
+                 - "footer_mode"
+                 - "footer_link"
+                 - "footer_caption"
+                 - "header"
+                 - "title"
+                 - "body"
+                 
+        format_dict : dict, optional
+            dicionário de dados de formatação do card. The default is format_dict.
+        pos : TYPE, optional
+            posição onde o card será inserido na lista. The default is 'end'.
+
+        Returns
+        -------
+        None.
+
+        """
         #---------------------------
         #Dicionário de dados do card
         #---------------------------
