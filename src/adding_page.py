@@ -17,6 +17,7 @@ class adding_page(ttk.Frame):
         from home_page import home_page
         from card_builder import card_builder
         from card_importer import card_importer
+        from web_scrapper_builder import web_scrapper_page
         from html_viewport import HTML_viewport
         
         ttk.Frame.__init__(self, parent,
@@ -52,6 +53,10 @@ class adding_page(ttk.Frame):
         #BOTÃO DE IMPORTAR DADOS
         bt_import = ttk.Button(bt_frame,text='Importar de Planilha',width=25,command=lambda: controller.show_frame(self,card_importer))
         bt_import.grid(row=1 ,column=0,padx=10,pady=(100,10))
+
+        #BOTÃO DE WEB SCRAPPER
+        bt_web = ttk.Button(bt_frame,text='Importar da Internet',width=25,command=lambda: controller.show_frame(self,web_scrapper_page))
+        bt_web.grid(row=2 ,column=0,padx=10,pady=(100,10))
         
         
         #BOTÃO DE VOLTAR      
