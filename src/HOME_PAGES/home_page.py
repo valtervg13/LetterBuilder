@@ -9,9 +9,9 @@ from tkinter import ttk
 
 
 import cfg
-import util
+import Utilities.util as util
 
-from Preview_Window import pvWidget
+from SUPPORT_PAGES.Preview_Window import pvWidget
 
 #==============================================================================
 #VARIÁVEIS GLOBAIS
@@ -37,9 +37,9 @@ news = cfg.news
 class home_page(ttk.Frame):
     def __init__(self, parent, controller):
         
-        from adding_page import adding_page
-        from html_viewport import HTML_viewport
-        from edit_page import edit_page
+        from HOME_PAGES.adding_page import adding_page
+        from SUPPORT_PAGES.html_viewport import HTML_viewport
+        from HOME_PAGES.edit_page import edit_page
 
 
         ttk.Frame.__init__(self, parent,

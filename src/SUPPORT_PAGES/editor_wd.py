@@ -13,9 +13,9 @@ Created on Wed Feb  2 14:24:40 2022
 """
 import tkinter as tk
 from tkinter import ttk
-from News_Builder import card,Newsletter
-from format_wd import format_wd
-import util
+from Utilities.News_Builder import card,Newsletter
+from SUPPORT_PAGES.format_wd import format_wd
+import Utilities.util as util
 
 #====================
 #Janela de Formatação
@@ -40,7 +40,7 @@ class editor_wd(format_wd):
         from cfg import format_dict
 
         def apply():
-            from edit_page import edit_page
+            from HOME_PAGES.edit_page import edit_page
             
             pos_idx = int(self.pos_var.get())
 

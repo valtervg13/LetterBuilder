@@ -7,16 +7,16 @@ Created on Wed Feb  2 14:43:05 2022
 import tkinter as tk
 from tkinter import ttk
 from cfg import news,format_dict
-import util
-from Preview_Window import pvWidget
+import Utilities.util as util
+from SUPPORT_PAGES.Preview_Window import pvWidget
 
 class card_builder(tk.Frame):
     def __init__(self, parent, controller):
         
-        from single_entry import single_entry
-        from adding_page import adding_page
-        from format_wd import format_wd
-        from html_viewport import HTML_viewport
+        from SUPPORT_PAGES.single_entry import single_entry
+        from HOME_PAGES.adding_page import adding_page
+        from SUPPORT_PAGES.format_wd import format_wd
+        from SUPPORT_PAGES.html_viewport import HTML_viewport
         
         ttk.Frame.__init__(self,
                            parent,
