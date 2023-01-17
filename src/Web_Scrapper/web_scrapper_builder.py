@@ -6,22 +6,29 @@ Created on Wed Feb  2 14:43:05 2022
 """
 import tkinter as tk
 from tkinter import ttk
+from tkcalendar import DateEntry
+import datetime as dt
+import pickle as pk
 import newsapi as napi
 from cfg import news,format_dict,newsapi_dict
-import util
-from Preview_Window import pvWidget
+import Utilities.util as util
+from SUPPORT_PAGES.Preview_Window import pvWidget
 
 news_q = tk.StringVar()
 news_lang = tk.StringVar()
 news_country = tk.StringVar()
+news_src = tk.StringVar()
+news_from = tk.StringVar()
+news_to = tk.StringVar()
+news_sort_by = tk.StringVar()
 
 class web_scrapper_page(tk.Frame):
     def __init__(self, parent, controller):
         
-        from single_entry import single_entry
-        from adding_page import adding_page
-        from format_wd import format_wd
-        from html_viewport import HTML_viewport
+        from SUPPORT_PAGES.single_entry import single_entry
+        from HOME_PAGES.adding_page import adding_page
+        from SUPPORT_PAGES.format_wd import format_wd
+        from SUPPORT_PAGES.html_viewport import HTML_viewport
         
         ttk.Frame.__init__(self,
                            parent,
@@ -94,20 +101,43 @@ class web_scrapper_page(tk.Frame):
             
 
         #Function to get news api parameters as dictionary
-        def get_newsapi_params():
+        def get_newsapi_params(newsapi_dict):
             
-            params = {}
+            #subfunction that changes date format from dd/mm/yyyy to yyyy-mm-dd
+            def date_format(date):
+                return date[6:10] + '-' + date[3:5] + '-' + date[0:2]
+
+            params = newsapi_dict
             
             params['q'] = news_q.get()
             params['language'] = news_lang.get()
             params['country'] = news_country.get()
-            params['category'] = news_cat.get()
             params['sources'] = news_src.get()
-            params['page_size'] = news_pg_size.get()
-            params['page'] = news_pg.get()
-            params['sort_by'] = news_sort.get()
+            params['from'] = date_format(news_from.get())
+            params['to'] = date_format(news_to.get())
+            params['sort_by'] = news_sort_by.get()
             
             return params
+
+        #Function that takes a dictionary from get_newsapi_params and 
+        #makes an http request through newsapi using the parameters
+        def get_newsapi(params):
+                
+                http_params = {'q' : params['q'],
+                               'language' : params['language'],
+                               'from_param' : params['from'],
+                               'to' : params['to'],
+                               'sort_by' : params['sort_by']
+                               }
+                    
+                http_params = {k:v for k,v in http_params.items() if v != ''}
+                
+                print(http_params)
+                newsapi = napi.NewsApiClient(api_key=params['api_key'])
+                
+                news_results = newsapi.get_everything(**http_params)
+                print(news_results)
+                pk.dump(news_results,open('Data/news_results.pk','wb'))
 
         #---------------------------------------------------------------
         #JANELA DE VIZUALISAÇÃO
@@ -140,7 +170,7 @@ class web_scrapper_page(tk.Frame):
 
         #Query
 
-        act_import_legend_q = ttk.Label(act_import_frame,text='Query:')
+        act_import_legend_q = ttk.Label(act_import_frame,text='Pesquisa:')
         act_import_legend_q.grid(row=0,column=0,sticky='nsew',padx=5,pady=5)
 
         global news_q
@@ -149,7 +179,7 @@ class web_scrapper_page(tk.Frame):
         act_import_q.grid(row=0,column=1,sticky='nsew',padx=5,pady=5)
 
         #Language
-        act_import_legend_lang = ttk.Label(act_import_frame,text='Language:')
+        act_import_legend_lang = ttk.Label(act_import_frame,text='Língua:')
         act_import_legend_lang.grid(row=1,column=0,sticky='nsew',padx=5,pady=5)
 
         global news_lang
@@ -158,7 +188,7 @@ class web_scrapper_page(tk.Frame):
         act_import_lang.grid(row=1,column=1,sticky='nsew',padx=5,pady=5)
 
         #Country
-        act_import_legend_country = ttk.Label(act_import_frame,text='Country:')
+        act_import_legend_country = ttk.Label(act_import_frame,text='País:')
         act_import_legend_country.grid(row=2,column=0,sticky='nsew',padx=5,pady=5)
 
         global news_country
@@ -166,6 +196,48 @@ class web_scrapper_page(tk.Frame):
         act_import_country = ttk.Entry(act_import_frame,textvariable=news_country,width=10)
         act_import_country.grid(row=2,column=1,sticky='nsew',padx=5,pady=5)
 
+        #Date From
+        act_import_legend_from = ttk.Label(act_import_frame,text='De:')
+        act_import_legend_from.grid(row=3,column=0,sticky='nsew',padx=5,pady=5)
+
+        global news_from
+        news_from.set(newsapi_dict['news_from'])
+        act_import_from = DateEntry(act_import_frame,
+                                    date_pattern='dd/mm/yyyy',
+                                    textvariable=news_from)
+        act_import_from.grid(row=3,column=1,sticky='nsew',padx=5,pady=5)
+
+        #Date To
+        act_import_legend_to = ttk.Label(act_import_frame,text='Até:')
+        act_import_legend_to.grid(row=4,column=0,sticky='nsew',padx=5,pady=5)
+
+        global news_to
+        news_to.set(newsapi_dict['news_to'])
+        act_import_to = DateEntry(act_import_frame,
+                                    date_pattern='dd/mm/yyyy',
+                                    textvariable=news_to
+                                    )
+        act_import_to.grid(row=4,column=1,sticky='nsew',padx=5,pady=5)
+
+        #Sort By
+        act_import_legend_sort_by = ttk.Label(act_import_frame,text='Ordenar por:')
+        act_import_legend_sort_by.grid(row=5,column=0,sticky='nsew',padx=5,pady=5)
+
+        global news_sort_by
+        news_sort_by.set(newsapi_dict['sort_by'])
+        act_import_sort_by = ttk.Combobox(act_import_frame,textvariable=news_sort_by)
+        act_import_sort_by['values'] = ('relevancy','popularity','publishedAt')
+        act_import_sort_by.grid(row=5,column=1,sticky='nsew',padx=5,pady=5)
+
+        #Button to call the API
+        act_import_legend_bt = ttk.Label(act_import_frame,text='Buscar:')
+        act_import_legend_bt.grid(row=6,column=0,sticky='nsew',padx=5,pady=5)
+
+        act_import_bt = ttk.Button(act_import_frame,
+                                    text='Buscar',
+                                    command=lambda: get_newsapi(get_newsapi_params(newsapi_dict))
+                                    )
+        act_import_bt.grid(row=6,column=1,sticky='nsew',padx=5,pady=5)
 
         act_frame.add(act_import_frame, text = 'Parâmetros da API')
         

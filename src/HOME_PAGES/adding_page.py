@@ -6,19 +6,19 @@ Created on Wed Feb  2 14:39:29 2022
 """
 import tkinter as tk
 from tkinter import ttk
-from Preview_Window import pvWidget
+from SUPPORT_PAGES.Preview_Window import pvWidget
 
-import util
+import Utilities.util as util
 
 
 class adding_page(ttk.Frame):
     def __init__(self, parent, controller):
         
-        from home_page import home_page
-        from card_builder import card_builder
-        from card_importer import card_importer
-        from web_scrapper_builder import web_scrapper_page
-        from html_viewport import HTML_viewport
+        from HOME_PAGES.home_page import home_page
+        from BUILDING_PAGES.sheet_import_builder import card_builder
+        from BUILDING_PAGES.card_importer import card_importer
+        from BUILDING_PAGES.web_scrapper_builder import web_scrapper_page
+        from SUPPORT_PAGES.html_viewport import HTML_viewport
         
         ttk.Frame.__init__(self, parent,
                           height=parent.winfo_height(),

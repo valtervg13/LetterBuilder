@@ -6,7 +6,7 @@ Created on Wed Feb  2 14:24:40 2022
 """
 import tkinter as tk
 from tkinter import ttk
-import util
+import Utilities.util as util
 
 
 
@@ -44,10 +44,9 @@ class format_wd(tk.Toplevel):
         #FUNÇÃO: CARREGAR PERFIL
         #======================================================
         def load_button():
-                from profilers import (profiler, 
-                                       profile_load_wd,
-                                       profile_save_wd,
-                                       format_profiler)
+                from SUPPORT_PAGES.Profilers.profiler_load_wd import profile_load_wd
+                                    
+                from cfg import format_profiler
                 
                 master.show_window(profile_load_wd,
                                    parent=self,
@@ -810,11 +809,12 @@ class format_wd(tk.Toplevel):
         from cfg import (format_data_path,
                          format_dict)
         
-        from profilers import (profiler, 
-                               profile_load_wd,
-                               profile_save_wd,
-                               format_profiler)
-        
+        from SUPPORT_PAGES.Profilers.profiler_src import profiler
+        from SUPPORT_PAGES.Profilers.profiler_load_wd import profile_load_wd
+        from SUPPORT_PAGES.Profilers.profiler_save_wd import profile_save_wd
+
+        from cfg import format_profiler
+
         #---------------------------------------------------------------
         #SALVAR DADOS OBTIDOS EM ATRIBUTOS DE CLASSE
         #---------------------------------------------------------------

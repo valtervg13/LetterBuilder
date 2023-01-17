@@ -134,22 +134,22 @@ def browseFiles(var:tk.StringVar,*args):
         
         if file_path != browse_path and file_path != '':
             browse_path = file_path
-            store_data('Data/config.cfg', {'browse_path':file_path})
+            store_data('./Data/config.cfg', {'browse_path':file_path})
 
 def RefreshPv(display_widget):
-    with open('cards_text.html','r',encoding='utf8') as card_text:
+    with open('./cards_text.html','r',encoding='utf8') as card_text:
         display_text = card_text.read()
 
-    with open('display_text.html','w',encoding='utf8') as display:
+    with open('./display_text.html','w',encoding='utf8') as display:
         display.write(display_text)
     
-    with open('display_text.html','r',encoding='utf8') as display:
+    with open('./display_text.html','r',encoding='utf8') as display:
         display_widget.load_html(display.read())
 
 def Helper(display_widget):
 
-    with open('display_text.html','w',encoding='utf-8') as display:
-        with open('help_text.html','r',encoding='utf-8') as help_text:
+    with open('./display_text.html','w',encoding='utf-8') as display:
+        with open('./help_text.html','r',encoding='utf-8') as help_text:
             entry_message = help_text.read().replace('<self_file>',
                                                      'display_text.html'
                                                      )
@@ -158,12 +158,12 @@ def Helper(display_widget):
         display.close()  
         
         
-    with open('display_text.html','r',encoding='utf-8') as display:
+    with open('./display_text.html','r',encoding='utf-8') as display:
         display_widget.load_html(display.read())
         
         
 def DisplayBrowser():
-    os.system('display_text.html')
+    os.system('./display_text.html')
         
         
 

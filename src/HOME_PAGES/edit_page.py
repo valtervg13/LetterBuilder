@@ -7,9 +7,9 @@ Created on Wed Mar 16 14:15:05 2022
 
 import tkinter as tk
 from tkinter import ttk
-from Preview_Window import pvWidget
+from SUPPORT_PAGES.Preview_Window import pvWidget
 
-import util
+import Utilities.util as util
 
 def list_cards(newsletter,
                canvas_width,
@@ -99,9 +99,9 @@ def list_cards(newsletter,
 class edit_page(ttk.Frame):
     def __init__(self, parent, controller):
         
-        from home_page import home_page
-        from html_viewport import HTML_viewport
-        from editor_wd import editor_wd
+        from HOME_PAGES.home_page import home_page
+        from SUPPORT_PAGES.html_viewport import HTML_viewport
+        from SUPPORT_PAGES.editor_wd import editor_wd
         from cfg import news
         
         ttk.Frame.__init__(self, parent,

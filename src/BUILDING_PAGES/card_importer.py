@@ -7,7 +7,7 @@ Created on Wed Feb  2 14:59:43 2022
 
 import tkinter as tk
 from tkinter import ttk
-from tktip import CreateToolTip
+from Utilities.tktip import CreateToolTip
 from tkcalendar import DateEntry
 
 import datetime as dt
@@ -19,21 +19,23 @@ from cfg import (news,
                  format_dict
                  )
 
-import util
-from util import browseFiles
-from time_check import time_check as tc
-from Preview_Window import pvWidget
+import Utilities.util as util
+from Utilities.util import browseFiles
+from Utilities.time_check import time_check as tc
+from SUPPORT_PAGES.Preview_Window import pvWidget
 
 
 class card_importer(ttk.Frame):
     def __init__(self, parent, controller):
         
-        from format_wd import format_wd
-        from adding_page import adding_page
-        from profilers import (profile_load_wd,
-                               profile_save_wd,
-                               import_profiler)
-        from html_viewport import HTML_viewport
+        from SUPPORT_PAGES.format_wd import format_wd
+        from HOME_PAGES.adding_page import adding_page
+        from SUPPORT_PAGES.Profilers.profiler_load_wd import profile_load_wd
+        from SUPPORT_PAGES.Profilers.profiler_save_wd import profile_save_wd
+                              
+        from cfg import import_profiler
+        from cfg import format_profiler
+        from SUPPORT_PAGES.html_viewport import HTML_viewport
 
 
         ttk.Frame.__init__(self, parent,

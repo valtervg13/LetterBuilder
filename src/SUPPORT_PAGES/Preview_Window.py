@@ -7,7 +7,7 @@ Created on Thu Jul 28 14:30:34 2022
 
 import tkinter as tk
 from tkinter import ttk
-import util
+import Utilities.util as util
 
 class pvWidget():
     """
@@ -35,7 +35,7 @@ class pvWidget():
                  height = 0.9):
 
         
-        from html_viewport import HTML_viewport
+        from SUPPORT_PAGES.html_viewport import HTML_viewport
         
         self.window_obj = window_obj
         self.parent = parent

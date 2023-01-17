@@ -4,8 +4,9 @@ Created on Tue Feb  1 15:46:41 2022
 
 @author: valter.gonzaga
 """
-import util as util
-from News_Builder import Newsletter
+import Utilities.util as util
+from Utilities.News_Builder import Newsletter
+from SUPPORT_PAGES.Profilers.profiler_src import profiler
 
 """
 =====================================================================
@@ -28,23 +29,23 @@ html_errmessages = False
 
 #Browse path
 
-browse_path = util.fetch_data('Data/config.cfg')['browse_path']
+browse_path = util.fetch_data('./Data/config.cfg')['browse_path']
 
 #Format data
 
-format_data_path = 'Data/format_profiles'
+format_data_path = './Data/format_profiles'
 
-format_dict = util.fetch_data('Data/format_data.cfg')
+format_dict = util.fetch_data('./Data/format_data.cfg')
 
 #Import data
 
-import_data_path = 'Data/import_profiles'
+import_data_path = './Data/import_profiles'
 
-import_dict = util.fetch_data('Data/import_config.cfg')
+import_dict = util.fetch_data('./Data/import_config.cfg')
 
 #Newsapi data
 
-newsapi_dict = util.fetch_data('Data/newsapi.cfg')
+newsapi_dict = util.fetch_data('./Data/newsapi.cfg')
 
 info_dict_list = []
 
@@ -70,7 +71,10 @@ months_dict = {'   ':0,
                }
 
 #====================================================================
-#NEWSLETTER
+#OBJETOS GLOBAIS
 #====================================================================
 
 news = Newsletter()
+
+format_profiler = profiler(path=format_data_path)
+import_profiler = profiler(path=import_data_path)

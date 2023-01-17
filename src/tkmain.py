@@ -7,10 +7,10 @@ Created on Tue Feb  1 17:23:21 2022
 import tkinter as tk
 import ttkthemes as themes
 from tkinter import colorchooser
-from home_page import home_page
+from HOME_PAGES.home_page import home_page
 
 import cfg
-from News_Builder import card
+from Utilities.News_Builder import card
 
 #==============================================================================
 #VARIÁVEIS GLOBAIS
