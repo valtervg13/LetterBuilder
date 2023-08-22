@@ -9,7 +9,7 @@ Current output formats are:
   
   - HTML email body code (.html)
   - HTML webview (.html)
-  - Outlool Email (.eml)
+  - Outlook Email (.eml)
 
 
 The project is currently in Beta state and still presents many bugs, but basic functionatly works as intended.
